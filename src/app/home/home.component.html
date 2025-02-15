@@ -1,0 +1,30 @@
+<body>
+    <header>
+        <div class="logo-container">
+            <img src="cbtis248_logo.png" alt="Logo CBTis 248">
+            <h1>CBTis 248 Zimatlán de Álvarez</h1>
+        </div>
+        <p class="fecha">Viernes, 14 de Febrero de 2025</p>
+    </header>
+    <main>
+        <div class="registro" [routerLink]="['/cbtis248Ficha/solicitud']">
+            <h2>Únete al Orgullo CBTis 248</h2>
+            <p>Tramita tu ficha</p>
+        </div>
+        <p>Si ya cuentas con tu registro, ingresa aquí.</p>
+        <button class="acceder" (click)="openModal()">Acceder</button>
+    </main>
+
+    <div *ngIf="isVisible" class="modal-overlay">
+        <div class="modal-content">
+          <span class="close" (click)="closeModal()">&times;</span>
+          <img src="assets/cbtis248_mascota.png" alt="Mascota CBTis 248">
+          <h2>Iniciar Sesión</h2>
+          <label for="curp">Usuario</label>
+          <input type="text" id="curp" placeholder="Ingrese su Usuario">
+          <label for="password">Contraseña</label>
+          <input type="password" id="password" placeholder="Ingrese su contraseña">
+          <button class="ingresar" (click)="closeModal()">Ingresar</button>
+        </div>
+      </div>
+</body>

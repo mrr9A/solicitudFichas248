@@ -1,0 +1,166 @@
+<form [formGroup]="admisionForm" (ngSubmit)="onSubmit()" class="form-container">
+    <!-- Encabezado -->
+    <div class="header">
+        <h1>Centro de Bachillerato Tecnológico Industrial y de Servicios No. 248</h1>
+        <h2>Nicolás Bravo 20DCT0019T</h2>
+        <h3>Hoja de Registro de Datos para Nuevo Ingreso 2025</h3>
+        <h3>Una vez terminado el registro inicia sesión con tu usuario y contraseña para subir tus documentos</h3>
+    </div>
+
+    <!-- DATOS PERSONALES DEL ALUMNO -->
+    <h2 class="section-title">DATOS PERSONALES DEL ALUMNO</h2>
+    <div class="form-section">
+        <div class="form-column">
+            <div class="form-group">
+                <label>Nombre:</label>
+                <input formControlName="nombre" type="text" class="form-input">
+            </div>
+            <div class="form-group">
+                <label>Apellido Paterno:</label>
+                <input formControlName="apellidoPaterno" type="text" class="form-input">
+            </div>
+            <div class="form-group">
+                <label>Apellido Materno:</label>
+                <input formControlName="apellidoMaterno" type="text" class="form-input">
+            </div>
+            <div class="form-group">
+                <label>CURP:</label>
+                <input formControlName="curp" type="text" class="form-input">
+            </div>
+            <div class="form-group">
+                <label>Correo Electrónico:</label>
+                <input formControlName="correo" type="email" class="form-input">
+            </div>
+            <div class="form-group">
+                <label>Teléfono Celular:</label>
+                <input formControlName="telefonoCelular" type="text" class="form-input">
+            </div>
+            <div class="form-group">
+                <label>Número de Seguridad Social:</label>
+                <input formControlName="numeroSeguridadSocial" type="text" class="form-input">
+            </div>
+        </div>
+
+        <div class="form-column">
+            <div class="form-group">
+                <label>Estado Civil:</label>
+                <select formControlName="estadoCivil" class="form-input">
+                    <option value="">Seleccione</option>
+                    <option value="Soltero">Soltero</option>
+                    <option value="Casado">Casado</option>
+                    <option value="UnionLibre">En unión libre</option>
+                    <option value="Divorciado">Divorciado</option>
+                    <option value="Viudo">Viudo</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Lugar de Nacimiento:</label>
+                <input formControlName="lugarNacimiento" type="text" class="form-input">
+            </div>
+            <div class="form-group">
+                <label>Radicas en:</label>
+                <input formControlName="radicasEn" type="text" class="form-input">
+            </div>
+            <div class="form-group">
+                <label>Localidad:</label>
+                <input formControlName="localidad" type="text" class="form-input">
+            </div>
+            <div class="form-group">
+                <label>Código Postal:</label>
+                <input formControlName="codigoPostal" type="text" class="form-input">
+            </div>
+            <div class="form-group">
+                <label>Calle y Número:</label>
+                <input formControlName="calleNumero" type="text" class="form-input">
+            </div>
+            <div class="form-group">
+                <label>Colonia:</label>
+                <input formControlName="colonia" type="text" class="form-input">
+            </div>
+            <div class="form-group">
+                <label>Teléfono Fijo:</label>
+                <input formControlName="telefonoFijo" type="text" class="form-input">
+            </div>
+            <div class="form-group">
+                <label>Tipo de Sangre:</label>
+                <select formControlName="tipoSangre" class="form-input">
+                    <option value="">Seleccione</option>
+                    <option *ngFor="let tipo of tiposSangre" [value]="tipo">{{ tipo }}</option>
+                </select>
+            </div>
+        </div>
+    </div>
+
+    <!-- DATOS DEL RESPONSABLE -->
+    <h2 class="section-title">DATOS DEL RESPONSABLE</h2>
+    <div class="form-section">
+        <div class="form-group">
+            <label>Nombre del Responsable:</label>
+            <input formControlName="nombreResponsable" type="text" class="form-input">
+        </div>
+        <div class="form-group">
+            <label>Teléfono:</label>
+            <input formControlName="telefonoResponsable" type="text" class="form-input">
+        </div>
+    </div>
+
+    <!-- DATOS DE EDUCACIÓN -->
+    <h2 class="section-title">DATOS DE TU EDUCACIÓN</h2>
+    <div class="form-section">
+        <div class="form-group">
+            <label>Secundaria:</label>
+            <input formControlName="secundaria" type="text" class="form-input">
+        </div>
+        <div class="form-group">
+            <label>Clave Secundaria (CT):</label>
+            <input formControlName="claveCT" type="text" class="form-input">
+        </div>
+        <div class="form-group">
+            <label>Modalidad:</label>
+            <input formControlName="modalidad" type="text" class="form-input">
+        </div>
+        <div class="form-group">
+            <label>Promedio Final:</label>
+            <input formControlName="promedioFinal" type="number" class="form-input">
+        </div>
+        <div class="form-group">
+            <label>Régimen:</label>
+            <input formControlName="regimen" type="text" class="form-input">
+        </div>
+        <div class="form-group">
+            <label>Año de Termino:</label>
+            <input formControlName="anioTermino" type="text" class="form-input">
+        </div>
+    </div>
+
+    <!-- ESPECIALIDAD A CURSAR -->
+    <h2 class="section-title">ESPECIALIDAD A CURSAR</h2>
+    <div class="form-group">
+        <label>Primera Opción:</label>
+        <select formControlName="primeraOpcion" class="form-input">
+            <option value="">Seleccione</option>
+            <option *ngFor="let especialidad of especialidades" [value]="especialidad">{{ especialidad }}</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label>Segunda Opción:</label>
+        <select formControlName="segundaOpcion" class="form-input">
+            <option value="">Seleccione</option>
+            <option *ngFor="let especialidad of especialidades" [value]="especialidad">{{ especialidad }}</option>
+        </select>
+    </div>
+
+    <!-- CREAR USUARIO -->
+    <h2 class="section-title">Crear Usuario y Contraseña</h2>
+    <div class="form-group">
+        <label>Usuario:</label>
+        <input formControlName="usuario" type="text" class="form-input">
+    </div>
+    <div class="form-group">
+        <label>Contraseña:</label>
+        <input formControlName="contrasena" type="password" class="form-input">
+    </div>
+
+    <!-- Botón de Enviar -->
+    <button type="submit" [disabled]="admisionForm.invalid" class="submit-button">Enviar</button>
+</form>
