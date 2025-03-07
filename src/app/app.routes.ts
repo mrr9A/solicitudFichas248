@@ -10,6 +10,10 @@ export const routes: Routes = [
             },
             {
                 path: 'homePostulantes',
+                loadComponent: ()  => import('./postulantes/home/home.component').then(m => m.HomeComponent)
+            },
+            {
+                path: 'homeAdmin',
                 loadComponent: ()  => import('./Admin/home/home.component').then(m => m.HomeComponent)
             },
             {
