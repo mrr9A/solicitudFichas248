@@ -67,8 +67,8 @@
               <td>{{ documento.estado }}</td>
               <td>
                 <button (click)="visualizarDocumento(documento.ruta)">Ver</button>
-                <button *ngIf="documento.estado === 'pendiente'" (click)="aprobarDocumento(documento.id, usuarioActual.id)">Aprobar</button>
-                <button *ngIf="documento.estado === 'pendiente'" (click)="rechazarDocumento(documento.id, usuarioActual.id)">Rechazar</button>
+                <button *ngIf="documento.estado === 'pendiente'" (click)="cambiarEstadoAprobado(documento.id)">Aprobar</button>
+                <button *ngIf="documento.estado === 'pendiente'" (click)="cambiarEstadoRechazado(documento.id)">Rechazar</button>
               </td>
             </tr>
           </tbody>
