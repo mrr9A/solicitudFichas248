@@ -11,6 +11,11 @@ export class ApisService {
 
   constructor(private http: HttpClient) { }
 
+  // Método para cambiar el estado del documento
+  cambiarEstadoDocumento(id: number, estado: string) {
+    return this.http.put(`${this.apiUrl}/documens-pdf/cambiar-estado/${id}`, { estado });
+  }
+
   // Obtener documentos de un usuario por su ID
   getDocumentosPorUsuario(usuarioId: number) {
     return this.http.get<any[]>(`${this.apiUrl}/documens-pdf/documentos-usuario/${usuarioId}`);
@@ -20,6 +25,11 @@ export class ApisService {
   getUsuario(id: number): Observable<any> {
     return this.http.get(`${this.apiUrl}/registro-entity/${id}`);
   }
+
+  obtenerAllUser(): Observable<any[]> {
+    return this.http.get<any[]>(`${this.apiUrl}/registro-entity/ordenados`);
+  }
+
 
   //Api para guardar el pdf
   guardarpdf(formData: any) {

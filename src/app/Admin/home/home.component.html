@@ -1,1 +1,79 @@
-<p>home workqqs!</p>
+<body>
+    <header>
+      <div class="logo-container">
+        <img src="logoCBTis248.png" alt="Logo CBTis 248">
+        <h1>CBTis 248 Zimatlán de Álvarez</h1>
+      </div>
+      <p class="fecha">Viernes, 14 de Febrero de 2025</p>
+    </header>
+  
+    <div class="container">
+      <h2>Panel de Administración</h2>
+  
+      <!-- Selección de Especialidad -->
+      <label for="especialidad">Seleccionar Especialidad:</label>
+      <select id="especialidad" [(ngModel)]="especialidadSeleccionada" (change)="filtrarUsuarios()">
+        <option value="">Todas</option>
+        <option *ngFor="let especialidad of especialidades" [value]="especialidad">
+          {{ especialidad }}
+        </option>
+      </select>
+  
+      <!-- Tabla de Usuarios -->
+      <h3>Usuarios</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>Nombre</th>
+            <th>Especialidad</th>
+            <th>Documentos</th>
+            <th>Ficha</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let usuario of usuarios">
+            <td>{{ usuario.nombre }} {{ usuario.apellidoPaterno }} {{ usuario.apellidoMaterno }}</td>
+            <td>{{ usuario.primeraOpcion }}</td>
+            <td>
+              <button (click)="obtenerDocumentos(usuario.id)">Ver Documentos</button>
+            </td>
+            <td>
+                <ng-container *ngIf="usuariosConFicha[usuario.id]; else pendienteFicha">
+                  <button (click)="generarFicha(usuario.id)">Generar Ficha</button>
+                </ng-container>
+                <ng-template #pendienteFicha>
+                  <span>Pendiente</span>
+                </ng-template>
+              </td>
+              
+          </tr>
+        </tbody>
+      </table>
+  
+      <!-- Documentos del Usuario Seleccionado -->
+      <div *ngIf="usuarioActual">
+        <h3>Documentos de {{ usuarioActual.nombre }}</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>Tipo</th>
+              <th>Estado</th>
+              <th>Acciones</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let documento of documentos[usuarioActual.id]">
+              <td>{{ documento.documentoTipo }}</td>
+              <td>{{ documento.estado }}</td>
+              <td>
+                <button (click)="visualizarDocumento(documento.ruta)">Ver</button>
+                <button *ngIf="documento.estado === 'pendiente'" (click)="aprobarDocumento(documento.id, usuarioActual.id)">Aprobar</button>
+                <button *ngIf="documento.estado === 'pendiente'" (click)="rechazarDocumento(documento.id, usuarioActual.id)">Rechazar</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </body>
+  
