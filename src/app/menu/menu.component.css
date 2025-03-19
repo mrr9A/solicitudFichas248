@@ -1,0 +1,128 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background-color: white;
+    text-align: center;
+}
+
+.header {
+    background: #A02C44;
+    color: white;
+    padding: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.header img {
+    height: 80px;
+}
+
+.header h1 {
+    flex: 1;
+}
+
+.btn {
+    display: block;
+    width: 250px;
+    margin: 20px auto;
+    padding: 15px;
+    background: #586765;
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: bold;
+    border-radius: 20px;
+    transition: 0.3s;
+}
+
+.btn:hover {
+    background: #728481;
+}
+
+.footer {
+    background: #A02C44;
+    color: white;
+    padding: 20px;
+    margin-top: 90px;
+}
+
+.footer p {
+    margin-top: 12px;
+}
+
+.footer a {
+    margin-right: 12px;
+    margin-left: 12px;
+    color: white;
+}
+.custom-icon {
+    font-size: 35px; /* Ajusta el tamaño que necesites */
+}
+
+.footer img {
+    height: 60px;
+}
+
+.logoBienvenido{
+    height: 180px;
+}
+
+.sidebar {
+    width: 30%;
+    background: white;
+    color: white;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.content1 {
+    flex: 4;
+    top: 12px;
+    align-items: center;
+    justify-content: center;
+}
+.content {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.login-box input {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.login-box button {
+    padding: 10px 20px;
+    background: #00a88f;
+    border: none;
+    color: white;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.login-box button:hover {
+    background: #007a65;
+}
+.container {
+    margin-top: 50px;
+    color: #586765;
+    padding: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}

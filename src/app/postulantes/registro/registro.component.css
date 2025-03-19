@@ -1,7 +1,7 @@
 /* Estilos generales */
 body {
   font-family: Arial, sans-serif;
-  background-color: #C5E1A5; /* Verde claro */
+  background-color: white; /* Verde claro */
   margin: 0;
   padding: 20px;
 }
@@ -11,26 +11,31 @@ body {
   max-width: 900px;
   margin: 0 auto;
   padding: 20px;
-  background-color: #E8F5E9; /* Fondo más claro para el formulario */
-  border: 2px solid #388E3C; /* Verde oscuro */
+  background-color: #f7f7f7; /* Fondo más claro para el formulario */
+  border: 2px solid #253342d8; /* Verde oscuro */
   border-radius: 8px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
 
 /* Encabezado */
 .header {
-  text-align: center;
-  background-color: #388E3C; /* Verde oscuro */
+  background: #A02C44;
   color: white;
-  padding: 10px;
-  border-radius: 6px;
-  margin-bottom: 20px;
+  text-align: center;
+  padding: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
+.header img {
+  height: 80px;
+}
+
 
 /* Secciones del formulario */
 .section-title {
   font-size: 18px;
-  background-color: #388E3C; /* Verde oscuro */
+  background-color: #253342d8; /* Verde oscuro */
   color: white;
   padding: 5px;
   border-radius: 4px;
@@ -75,7 +80,7 @@ body {
 
 /* Botón de enviar */
 .submit-button {
-  background-color: #2E7D32; /* Verde oscuro */
+  background-color: #253342d8; /* Verde oscuro */
   color: white;
   padding: 10px 20px;
   border: none;
@@ -87,7 +92,7 @@ body {
 }
 
 .submit-button:hover {
-  background-color: #1B5E20;
+  background-color: #575b57;
 }
 
 /* Ajuste responsivo para móviles */

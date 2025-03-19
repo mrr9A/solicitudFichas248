@@ -5,8 +5,12 @@ export const routes: Routes = [
         path: 'cbtis248Ficha',
         children: [
             {
-                path: 'home',
+                path: 'menu',
                 loadComponent: () => import('./home/home.component').then(m => m.HomeComponent)
+            },
+            {
+                path: 'home',
+                loadComponent: () => import('./menu/menu.component').then(m => m.MenuComponent)
             },
             {
                 path: 'homePostulantes',
@@ -15,6 +19,10 @@ export const routes: Routes = [
             {
                 path: 'homeAdmin',
                 loadComponent: ()  => import('./Admin/home/home.component').then(m => m.HomeComponent)
+            },
+            {
+                path: 'revision',
+                loadComponent: ()  => import('./Admin/revison-doc/revison-doc.component').then(m => m.RevisonDocComponent)
             },
             {
                 path: 'solicitud',

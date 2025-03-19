@@ -1,10 +1,11 @@
 <body>
     <header>
-        <div class="logo-container">
-            <img src="logoCBTis248.png" alt="Logo CBTis 248" />
-            <h1>CBTis 248 Zimatlán de Álvarez</h1>
+        <img src="logo__bl.png" alt="Logo UTVCO">
+        <div>
+            <h1>Centro de Bachillerato Tecnológico Industrial y de Servicios No. 248</h1>
+            <h2>"Nicolás Bravo"</h2>
         </div>
-        <p class="fecha">Viernes, 14 de Febrero de 2025</p>
+        <img src="logo__bl.png" alt="Logo UTVCO">
     </header>
 
     <div class="container">
@@ -58,7 +59,11 @@
                 <td>Pendiente</td>
             </tr>
         </table>
-
+        <div *ngIf="estadoDocumentos['curp'] === 'aprobado' && estadoDocumentos['actaNacimiento'] === 'aprobado' && estadoDocumentos['certificado'] === 'aprobado' && estadoDocumentos['reciboPago'] === 'aprobado'">
+            <h3>Felicidades tus documentos han sido validados exitosamente</h3>
+            <p>Por favor descargue su ficha de admisión</p>
+            <button> DESCARGAR FICHA</button>
+        </div>
         <h3>Subir documentos</h3>
         <p>Por favor sube la siguiente documentación para completar tu registro: CURP, Acta de nacimiento, Certificado o
             Constancia de estudios y recibo de pago de cuota de recuperación</p>
@@ -71,13 +76,13 @@
                 </tr>
                 <tr>
                     <td>
-                        <input *ngIf="estadoDocumentos['curp'] !== 'pendiente' && estadoDocumentos['curp'] !== 'aprobado'" 
-                            type="file"
-                            (change)="onFileSelected($event, 'curp')" 
-                            accept=".pdf" 
-                        />
-                        <p  *ngIf="estadoDocumentos['curp'] !== 'pendiente' && estadoDocumentos['curp'] !== 'aprobado'">{{ selectedFiles['curp']?.name || 'Ningún archivo seleccionado' }}</p>
-                        <button *ngIf="estadoDocumentos['curp'] !== 'pendiente' && estadoDocumentos['curp'] !== 'aprobado'"
+                        <input
+                            *ngIf="estadoDocumentos['curp'] !== 'pendiente' && estadoDocumentos['curp'] !== 'aprobado'"
+                            type="file" (change)="onFileSelected($event, 'curp')" accept=".pdf" />
+                        <p *ngIf="estadoDocumentos['curp'] !== 'pendiente' && estadoDocumentos['curp'] !== 'aprobado'">
+                            {{ selectedFiles['curp']?.name || 'Ningún archivo seleccionado' }}</p>
+                        <button
+                            *ngIf="estadoDocumentos['curp'] !== 'pendiente' && estadoDocumentos['curp'] !== 'aprobado'"
                             (click)="subirArchivo('curp')">Subir
                         </button><br><br>
                         <span *ngIf="estadoDocumentos['curp'] === 'pendiente'">Estado: Pendiente por revisar</span>
@@ -85,16 +90,18 @@
                         <span *ngIf="estadoDocumentos['curp'] === 'rechazado'">Estado: rechazado</span>
                     </td>
                     <td>
-                        <input *ngIf="estadoDocumentos['actaNacimiento'] !== 'pendiente' && estadoDocumentos['actaNacimiento'] !== 'aprobado'"  
-                            type="file"
-                            (change)="onFileSelected($event, 'actaNacimiento')" 
-                            accept=".pdf" 
-                        />
-                        <p  *ngIf="estadoDocumentos['actaNacimiento'] !== 'pendiente' && estadoDocumentos['actaNacimiento'] !== 'aprobado'">{{ selectedFiles['actaNacimiento']?.name || 'Ningún archivo seleccionado' }}</p>
-                        <button *ngIf="estadoDocumentos['actaNacimiento'] !== 'pendiente' && estadoDocumentos['actaNacimiento'] !== 'aprobado'"
+                        <input
+                            *ngIf="estadoDocumentos['actaNacimiento'] !== 'pendiente' && estadoDocumentos['actaNacimiento'] !== 'aprobado'"
+                            type="file" (change)="onFileSelected($event, 'actaNacimiento')" accept=".pdf" />
+                        <p
+                            *ngIf="estadoDocumentos['actaNacimiento'] !== 'pendiente' && estadoDocumentos['actaNacimiento'] !== 'aprobado'">
+                            {{ selectedFiles['actaNacimiento']?.name || 'Ningún archivo seleccionado' }}</p>
+                        <button
+                            *ngIf="estadoDocumentos['actaNacimiento'] !== 'pendiente' && estadoDocumentos['actaNacimiento'] !== 'aprobado'"
                             (click)="subirArchivo('actaNacimiento')">Subir
                         </button><br><br>
-                        <span *ngIf="estadoDocumentos['actaNacimiento'] === 'pendiente'">Estado: Pendiente por revisar</span>
+                        <span *ngIf="estadoDocumentos['actaNacimiento'] === 'pendiente'">Estado: Pendiente por
+                            revisar</span>
                         <span *ngIf="estadoDocumentos['actaNacimiento'] === 'aprobado'">Estado: Aprobado</span>
                         <span *ngIf="estadoDocumentos['actaNacimiento'] === 'rechazado'">Estado: rechazado</span>
                     </td>
@@ -105,30 +112,34 @@
                 </tr>
                 <tr>
                     <td>
-                        <input *ngIf="estadoDocumentos['certificado'] !== 'pendiente' && estadoDocumentos['certificado'] !== 'aprobado'" 
-                            type="file"
-                            (change)="onFileSelected($event, 'certificado')" 
-                            accept=".pdf" 
-                        />
-                        <p  *ngIf="estadoDocumentos['certificado'] !== 'pendiente' && estadoDocumentos['certificado'] !== 'aprobado'">{{ selectedFiles['certificado']?.name || 'Ningún archivo seleccionado' }}</p>
-                        <button *ngIf="estadoDocumentos['certificado'] !== 'pendiente' && estadoDocumentos['certificado'] !== 'aprobado'"
+                        <input
+                            *ngIf="estadoDocumentos['certificado'] !== 'pendiente' && estadoDocumentos['certificado'] !== 'aprobado'"
+                            type="file" (change)="onFileSelected($event, 'certificado')" accept=".pdf" />
+                        <p
+                            *ngIf="estadoDocumentos['certificado'] !== 'pendiente' && estadoDocumentos['certificado'] !== 'aprobado'">
+                            {{ selectedFiles['certificado']?.name || 'Ningún archivo seleccionado' }}</p>
+                        <button
+                            *ngIf="estadoDocumentos['certificado'] !== 'pendiente' && estadoDocumentos['certificado'] !== 'aprobado'"
                             (click)="subirArchivo('certificado')">Subir
                         </button><br><br>
-                        <span *ngIf="estadoDocumentos['certificado'] === 'pendiente'">Estado: Pendiente por revisar</span>
+                        <span *ngIf="estadoDocumentos['certificado'] === 'pendiente'">Estado: Pendiente por
+                            revisar</span>
                         <span *ngIf="estadoDocumentos['certificado'] === 'aprobado'">Estado: Aprobado</span>
                         <span *ngIf="estadoDocumentos['certificado'] === 'rechazado'">Estado: rechazado</span>
                     </td>
                     <td>
-                        <input *ngIf="estadoDocumentos['reciboPago'] !== 'pendiente' && estadoDocumentos['reciboPago'] !== 'aprobado'" 
-                            type="file"
-                            (change)="onFileSelected($event, 'reciboPago')" 
-                            accept=".pdf" 
-                        />
-                        <p  *ngIf="estadoDocumentos['reciboPago'] !== 'pendiente' && estadoDocumentos['reciboPago'] !== 'aprobado'">{{ selectedFiles['reciboPago']?.name || 'Ningún archivo seleccionado' }}</p>
-                        <button *ngIf="estadoDocumentos['reciboPago'] !== 'pendiente' && estadoDocumentos['reciboPago'] !== 'aprobado'"
+                        <input
+                            *ngIf="estadoDocumentos['reciboPago'] !== 'pendiente' && estadoDocumentos['reciboPago'] !== 'aprobado'"
+                            type="file" (change)="onFileSelected($event, 'reciboPago')" accept=".pdf" />
+                        <p
+                            *ngIf="estadoDocumentos['reciboPago'] !== 'pendiente' && estadoDocumentos['reciboPago'] !== 'aprobado'">
+                            {{ selectedFiles['reciboPago']?.name || 'Ningún archivo seleccionado' }}</p>
+                        <button
+                            *ngIf="estadoDocumentos['reciboPago'] !== 'pendiente' && estadoDocumentos['reciboPago'] !== 'aprobado'"
                             (click)="subirArchivo('reciboPago')">Subir
                         </button><br><br>
-                        <span *ngIf="estadoDocumentos['reciboPago'] === 'pendiente'">Estado: Pendiente por revisar</span>
+                        <span *ngIf="estadoDocumentos['reciboPago'] === 'pendiente'">Estado: Pendiente por
+                            revisar</span>
                         <span *ngIf="estadoDocumentos['reciboPago'] === 'aprobado'">Estado: Aprobado</span>
                         <span *ngIf="estadoDocumentos['reciboPago'] === 'rechazado'">Estado: rechazado</span>
                     </td>

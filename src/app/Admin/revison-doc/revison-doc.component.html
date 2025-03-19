@@ -1,0 +1,74 @@
+  <app-components></app-components>
+  <router-outlet></router-outlet>
+  <div class="content">
+    <!-- Aquí va el contenido principal de la página -->
+    <h2>Aspirantes pendientes por revisar</h2>
+
+    <!-- Selección de Especialidad -->
+    <label for="especialidad">Seleccionar Especialidad:</label>
+    <select class="btn" id="especialidad" [(ngModel)]="especialidadSeleccionada" (change)="filtrarUsuarios()">
+      <option value="">Todas</option>
+      <option *ngFor="let especialidad of especialidades" [value]="especialidad">
+        {{ especialidad }}
+      </option>
+    </select>
+
+    <!-- Tabla de Usuarios -->
+    <h3>Usuarios</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Nombre</th>
+          <th>Especialidad</th>
+          <th>Documentos</th>
+          <th>Ficha</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let usuario of usuarios">
+          <td>{{ usuario.nombre }} {{ usuario.apellidoPaterno }} {{ usuario.apellidoMaterno }}</td>
+          <td>{{ usuario.primeraOpcion }}</td>
+          <td>
+            <button class="btn" (click)="obtenerDocumentos(usuario.id)">Ver Documentos</button>
+          </td>
+          <td>
+            <ng-container *ngIf="usuariosConFicha[usuario.id]; else pendienteFicha">
+              <!-- <button (click)="generarFicha(usuario.id)">Generar Ficha</button> -->
+              <span>Aprobado</span>
+            </ng-container>
+            <ng-template #pendienteFicha>
+              <span>Pendiente</span>
+            </ng-template>
+          </td>
+
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- Documentos del Usuario Seleccionado -->
+    <div *ngIf="usuarioActual">
+      <h3>Documentos de {{ usuarioActual.nombre }} {{usuarioActual.apellidoPaterno}} {{usuarioActual.apellidoMaterno}}</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>Tipo</th>
+            <th>Estado</th>
+            <th>Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let documento of documentos[usuarioActual.id]">
+            <td>{{ documento.documentoTipo }}</td>
+            <td>{{ documento.estado }}</td>
+            <td class="apro">
+              <button class="btn1" (click)="visualizarDocumento(documento.ruta)">Ver</button>
+              <button  class="btn1" *ngIf="documento.estado === 'pendiente'"
+                (click)="cambiarEstadoAprobado(documento.id)">Aprobar</button>
+              <button class="btn1" *ngIf="documento.estado === 'pendiente'"
+                (click)="cambiarEstadoRechazado(documento.id)">Rechazar</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>

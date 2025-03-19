@@ -7,12 +7,20 @@ body {
 }
 
 header {
-    background-color: #622b2b;
-    color: white;
-    padding: 20px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+  background: #A02C44;
+  color: white;
+  padding: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+header img {
+  height: 80px;
+}
+
+header h2 {
+  flex: 1;
+  color: white;
 }
 
 .logo-container {

@@ -19,7 +19,7 @@ export class RegistroComponent {
     'Mantenimiento automotriz',
     'Preparación de alimentos y bebidas',
     'Soporte y mantenimiento de cómputo',
-    'Servicios de hospedaje'
+    'Gestión e Innovación turistica'
   ];
 
   constructor(private fb: FormBuilder, private apiServi: ApisService,private router: Router) {
@@ -60,7 +60,8 @@ export class RegistroComponent {
 
       // Usuario y contraseña
       usuario: ['', [Validators.required, Validators.minLength(5)]],
-      contrasena: ['', [Validators.required, Validators.minLength(8)]]
+      contrasena: ['', [Validators.required, Validators.minLength(8)]],
+      role: ['pos',Validators.required]
     });
   }
 
@@ -71,7 +72,7 @@ export class RegistroComponent {
 
       this.apiServi.postRegistro(this.admisionForm.value).subscribe({
         next: () => {
-          this.router.navigate(['/cbtis248/listAdministrativos']);
+          this.router.navigate(['/cbtis248Ficha/home']);
         },
         error: (error) => {
           console.error('Error al guardar Administrativo:', error);

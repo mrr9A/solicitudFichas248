@@ -1,0 +1,31 @@
+<header>
+    <img src="logo__bl.png" alt="Logo UTVCO">
+    <div>
+        <h1>Centro de Bachillerato Tecnológico Industrial y de Servicios No. 248</h1>
+        <h2>"Nicolás Bravo"</h2>
+    </div>
+    <img src="logo__bl.png" alt="Logo UTVCO">
+</header>
+
+<div class="sidebar" [class.collapsed]="!menuOpen">
+    <div class="menu-toggle" (click)="toggleMenu()">
+        <i class="bi bi-list"></i>
+    </div>
+
+    <ul>
+        <li [routerLink]="['/cbtis248Ficha/homeAdmin']">
+            <i class="bi bi-house-door"></i> <span>Inicio</span>
+        </li>
+        <li>
+            <i class="bi bi-people"></i> <span>Personal administrativo CBTIS</span>
+        </li>
+        <li [routerLink]="['/cbtis248Ficha/revision']">
+            <i class="bi bi-mortarboard"></i> <span>Solicitud de fichas</span>
+        </li>
+        <li>
+            <i class="bi bi-person-plus"></i> <span>Lista de Aspirantes</span>
+        </li>
+    </ul>
+</div>
+
+

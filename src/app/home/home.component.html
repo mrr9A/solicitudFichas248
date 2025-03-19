@@ -1,26 +1,27 @@
 <body>
     <header>
-        <div class="logo-container">
-            <img src="logoCBTis248.png" alt="Logo CBTis 248">
-            <h1>CBTis 248 Zimatlán de Álvarez</h1>
+        <img src="logo__bl.png" alt="Logo UTVCO">
+        <div>
+            <h1>Centro de Bachillerato Tecnológico Industrial y de Servicios No. 248</h1>
+            <h2>"Nicolás Bravo"</h2>
         </div>
-        <p class="fecha">Viernes, 14 de Febrero de 2025</p>
+        <img src="logo__bl.png" alt="Logo UTVCO">
     </header>
     <main>
         <div class="registro" [routerLink]="['/cbtis248Ficha/solicitud']">
-            <h2>Forma parte del CBTis 248</h2>
-            <p>Tramita tu ficha aquí</p>
+            <p>Tramita tu ficha aquí y forma parte del Cbtis 248</p>
+            <img src="logo-dgeti-bl.png" alt="">
         </div>
-        <p>Si ya cuentas con tu registro, ingresa aquí.</p>
-        <button class="acceder" (click)="openModal()">Acceder</button>
+        <p class="textAcc">Si ya cuentas con tu registro, ingresa aquí.</p>
+        <button class="acceder" (click)="openModal()">Acceder <i class="bi bi-person-bounding-box"></i></button>
     </main>
 
     <div *ngIf="isVisible" class="modal-overlay">
         <div class="modal-content">
             <div class="logo-container">
-                <img  src="logoCBTis248.png" alt="Mascota CBTis 248">
+                <img src="logoCBTis248.png" alt="Mascota CBTis 248">
                 <h2>Iniciar Sesión</h2>
-                <button (click)="closeModal()"><i class="bi bi-x-circle"></i></button>
+                <a (click)="closeModal()"><i class="bi bi-x-circle custom-icon"></i></a>
             </div>
 
             <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
@@ -36,5 +37,15 @@
             <p *ngIf="errorMessage" class="error">{{ errorMessage }}</p>
         </div>
     </div>
-
+    <footer>
+        <h3>Contáctanos</h3>
+        <p>Carretera Federal 131, Km. 14, Barrio de San José, Zimatlán de Álvarez, Oaxaca C.P. 71200</p>
+        <p>Teléfono: (951) 571 56 81</p>
+        <p>Correo: {{correoCbtis}}</p><br>
+        <a href=""><i class="bi bi-facebook custom-icon"></i></a>
+        <a href=""><i class="bi bi-tiktok custom-icon"></i></a>
+        <p>Nuestros colaboradores:</p>
+        <p>Universidad Tecnológica de los Valles Centrales de Oaxaca</p>
+        <img src="utvco.png" alt="">
+    </footer>
 </body>
