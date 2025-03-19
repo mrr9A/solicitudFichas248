@@ -25,6 +25,14 @@ export const routes: Routes = [
                 loadComponent: ()  => import('./Admin/revison-doc/revison-doc.component').then(m => m.RevisonDocComponent)
             },
             {
+                path: 'list-aspirantes',
+                loadComponent: ()  => import('./Admin/lista-aspirante/lista-aspirante.component').then(m => m.ListaAspiranteComponent)
+            },
+            {
+                path: 'personal',
+                loadComponent: ()  => import('./Admin/personal/personal.component').then(m => m.PersonalComponent)
+            },
+            {
                 path: 'solicitud',
                 loadComponent: ()  => import('./postulantes/registro/registro.component').then(m => m.RegistroComponent)
             },

@@ -1,0 +1,14 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #d9e8f5;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* Contenido principal */
+  .content {
+  margin-left: 80px;
+  padding: 70px;
+  transition: margin-left 0.3s ease-in-out;
+  }
